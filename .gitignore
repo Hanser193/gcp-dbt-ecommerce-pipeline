@@ -1,0 +1,11 @@
+# Entornos virtuales
+venv/
+__pycache__/
+
+# Archivos de datos locales (Opcional, pero recomendado para no saturar GitHub)
+data/
+
+# Archivos de dbt generados automáticamente
+ecommerce_dbt/target/
+ecommerce_dbt/dbt_packages/
+ecommerce_dbt/logs/

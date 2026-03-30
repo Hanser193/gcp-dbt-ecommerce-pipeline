@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: ecommerce_raw 
+    database: project-59fdbdb5-71ea-4b99-835
+    tables:
+      - name: orders
