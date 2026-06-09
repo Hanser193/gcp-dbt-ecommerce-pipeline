@@ -3,7 +3,15 @@
 Este proyecto es un pipeline de datos End-to-End (ELT) que simula la ingesta y transformación de datos transaccionales de un E-commerce usando el "Modern Data Stack".
 
 ## 🏗️ Arquitectura del Proyecto
-
+```Mermaid
+graph TD
+    A[📁 Dataset Olist - Archivos CSV] -->|Python + PyArrow| B(📦 Conversión a formato Parquet)
+    B -->|Ingesta a la Nube| C[(🪣 Cloud Storage - Data Lake)]
+    C -->|Carga Raw| D[(📥 BigQuery - Capa Raw)]
+    D -->|Transformaciones SQL| E{🛠️ dbt - Data Build Tool}
+    E -->|Limpieza y Modelado| F[(📊 BigQuery - Capa Analytics)]
+    F -->|Conexión Directa| G[📈 Power BI - Dashboard]
+```   
 1. **Extracción (Extract):** Scripts en Python extraen datos locales (formato CSV), los convierten a formato columnar **Parquet** (para optimizar costos y rendimiento) y los suben a la nube.
 2. **Data Lake (Load):** Los archivos crudos se almacenan en **Google Cloud Storage (GCS)**.
 3. **Data Warehouse:** Desde Python, se orquesta la carga de los datos desde GCS hacia **Google BigQuery** (capa `raw`).
