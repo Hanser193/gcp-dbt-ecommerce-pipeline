@@ -3,7 +3,7 @@
 Este proyecto es un pipeline de datos End-to-End (ELT) que simula la ingesta y transformación de datos transaccionales de un E-commerce usando el "Modern Data Stack".
 
 ## 🏗️ Arquitectura del Proyecto
-```Mermaid
+```mermaid
 graph TD
     A[📁 Dataset Olist - Archivos CSV] -->|Python + PyArrow| B(📦 Conversión a formato Parquet)
     B -->|Ingesta a la Nube| C[(🪣 Cloud Storage - Data Lake)]
